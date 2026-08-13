@@ -26,9 +26,16 @@ import { VideoConsultations } from "./admin/pages/VideoConsultations";
 import { VideoRoom } from "./admin/pages/VideoRoom";
 import { Settings } from "./admin/pages/Settings";
 
+const getBasename = () => {
+  if (window.location.pathname.startsWith('/Dr. Murli Manohar')) {
+    return '/Dr. Murli Manohar';
+  }
+  return '/';
+};
+
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/Dr. Murli Manohar"}>
+    <BrowserRouter basename={getBasename()}>
       <AuthProvider>
         <Routes>
           {/* Public Website Routes */}
